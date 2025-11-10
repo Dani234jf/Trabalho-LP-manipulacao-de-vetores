@@ -6,7 +6,7 @@ O_FILES = $(C_FILES:%.c=%.o)
 .PHONY: clean
 
 run: $(TARGET)
-	$<
+	./$<
 
 $(TARGET): $(O_FILES)
 	cc $(O_FILES) -o $@
