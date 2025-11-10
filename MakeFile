@@ -3,20 +3,20 @@ CC = cc
 C_FILES = $(wildcard *.c Include/*.c)
 O_FILES = $(C_FILES:%.c=%.o)
 
-.PHONY: run clean
+.PHONY: clean
 
 run: $(TARGET)
-	$(TARGET)
+	$<
 
 $(TARGET): $(O_FILES)
-	cc $(O_FILES) -o $(TARGET)
+	cc $(O_FILES) -o $@
 
 $(O_FILES): %.o: %.c
 	cc -c $< -o $@
 
 ifeq ($(OS),Windows_NT)
 clean: 
-	cmd /C del /Q $(subst /,\\,$(O_FILES)) $(EXEC)
+	cmd /C del /Q $(subst /,\,$(O_FILES))
 	cmd /C del /Q $(TARGET)
 else
 clean:
