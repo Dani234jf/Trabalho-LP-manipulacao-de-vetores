@@ -5,7 +5,7 @@
 #define NUMERO_DE_OPERACOES 6
 
 // Funçao para ler numeros inteiros
-void lernumeros(int vetor[], int tamanho);
+void lerNumeros(int vetor[], int tamanho);
 
 // Mostrar o menu ao utilizador
 void mostarMenu();

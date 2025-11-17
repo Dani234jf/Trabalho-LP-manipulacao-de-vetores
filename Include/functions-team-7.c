@@ -2,7 +2,7 @@
 #include "functions-team-7.h"
 
 // Funçao que le os numeros inteiros de 3 a 31
-void lernumeros(int vetor[], int tamanho)
+void lerNumeros(int vetor[], int tamanho)
 {
     int i;
 

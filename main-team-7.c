@@ -8,7 +8,7 @@ int main()
     int vetor[TAMANHO_VETOR];
 
     printf("Programa de manipulacao de vetores.\n");
-    lernumeros(vetor, TAMANHO_VETOR);
+    lerNumeros(vetor, TAMANHO_VETOR);
 
     mostarMenu();
     escolherOperacao();
