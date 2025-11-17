@@ -5,12 +5,13 @@
 
 int main()
 {
-
-    int vetor[SIZE];
+    int vetor[TAMANHO_VETOR];
 
     printf("Programa de manipulacao de vetores.\n");
+    lerNumeros(vetor, TAMANHO_VETOR);
 
-    lernumeros(vetor, SIZE);
+    mostarMenu();
+    escolherOperacao();
 
     return 0;
 }
