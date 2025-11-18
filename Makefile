@@ -3,13 +3,15 @@ CC = cc
 C_FILES = $(wildcard *.c Include/*.c)
 O_FILES = $(C_FILES:%.c=%.o)
 
-.PHONY: clean
+.PHONY: all clean
+
+all: $(TARGET)
 
 run: $(TARGET)
 	./$<
 
 $(TARGET): $(O_FILES)
-	cc $(O_FILES) -o $@
+	cc $^ -o $@
 
 $(O_FILES): %.o: %.c
 	cc -c $< -o $@
