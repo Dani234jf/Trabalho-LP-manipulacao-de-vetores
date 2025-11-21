@@ -9,10 +9,11 @@ int main()
 
     printf("Vector manipulation program.\n");
     readNumbers(storedNumbers, VECTOR_COUNT);
-    
-    while(1) {
+
+    while (1)
+    {
         showMenu();
-        chooseOperation();
+        chooseOperation(storedNumbers);
     }
 
     return 0;

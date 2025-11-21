@@ -1,6 +1,21 @@
 #ifndef FUNCTIONS_TEAM_7_H
 #define FUNCTIONS_TEAM_7_H
 
+#define VECTOR_COUNT 14
+#define OPERATIONS_NUMBER 6
+
+/* Protótipos das funções */
+void readNumbers(int vector[], int size);
+void showMenu();
+void chooseOperation(int vector[]);
+
+/* Funções do menu */
+void calculateSquareRoot(int vector[], int size);
+void calculateAverage(int vector[], int size);
+void divisibleByThree(int vector[], int size);
+void sortDescending(int vector[], int size);
+void generateMatrixPermutations(int vector[], int size);
+void closestTo25(int vector[], int size);
 
 /**
  * @brief The count of numbers to read and store in the array
@@ -11,7 +26,6 @@
  * @brief The number of all the options in the menu
  */
 #define OPERATIONS_NUMBER 6
-
 
 /**
  * @brief Reads numbers and stores them in the `vector[int]`
@@ -31,7 +45,6 @@ void showMenu();
  * @brief Chooses function to execute based on the input
  * @details Executes the function linked to the option number that the user can choose
  */
-void chooseOperation();
-
+void chooseOperation(int vector[]);
 
 #endif
