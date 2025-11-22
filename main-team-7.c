@@ -12,7 +12,7 @@ int main()
     
     while(1) {
         showMenu();
-        chooseOperation();
+        chooseOperation(storedNumbers, VECTOR_COUNT);
     }
 
     return 0;
