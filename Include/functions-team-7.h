@@ -30,8 +30,17 @@ void showMenu();
 /**
  * @brief Chooses function to execute based on the input
  * @details Executes the function linked to the option number that the user can choose
+ * @param vector array of stored numbers
+ * @param size length of the array
  */
-void chooseOperation();
+void chooseOperation( int vector[], int size);
 
+/**
+ * @brief Calculates the square root of each element stored
+ * @details Calculates the square root of each element stored on `vector[int]` and outputs a new array with the results.
+ * @param vector array of stored numbers
+ * @param size length of the array
+ */
+void calculateRoot(int vector[],int size);
 
 #endif

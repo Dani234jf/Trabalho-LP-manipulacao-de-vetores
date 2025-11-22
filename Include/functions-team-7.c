@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 #include "functions-team-7.h"
 
 void readNumbers(int vector[], int count)
@@ -38,7 +39,21 @@ void showMenu()
     printf("_______________________________ |\n");
 }
 
-void chooseOperation()
+void calculateRoot(int vector[],int size)
+{
+    printf("\n[ ");
+    for(int i= 0; i < size; i++)
+    {
+        printf("%.3lf",sqrt((double)vector[i]));
+        if ( i != size - 1 )
+        {
+            printf(", ");
+        }
+    }
+    printf(" ]");
+}
+
+void chooseOperation( int vector[], int size )
 {
     int n = 0;
     do {
@@ -56,6 +71,7 @@ void chooseOperation()
         switch (n)
         {            
             case 1:
+                calculateRoot(vector, size);
                 break;
             case 2:
                 break;
