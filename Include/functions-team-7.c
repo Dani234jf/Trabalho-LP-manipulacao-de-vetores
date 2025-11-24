@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
+#include <time.h>
 #include "functions-team-7.h"
 
 void waitForUserEnter() {
@@ -9,27 +11,22 @@ void waitForUserEnter() {
     while(getchar() != '\n');    
 }
 
-void readNumbers(int vector[], int count)
+void readNumbers(int vector[], int size)
 {
-    int i;
-
-    for (i = 0; i < count; i++)
+    for (int i = 0; i < size; i++)
     {
         int number, valid;
-
         do
         {
-            printf("Enter a number %d (betwen 3 and 31) : ", i + 1);
+            printf("Enter a number %d (between 3 and 31): ", i + 1);
             valid = scanf("%d", &number);
-
             while (getchar() != '\n');
 
             if (!valid || number < 3 || number > 31)
             {
-                printf("Invalid input! Try again. \n");
+                printf("Invalid input! Try again.\n");
                 valid = 0;
             }
-
         } while (!valid);
 
         vector[i] = number;
@@ -59,7 +56,7 @@ void calculateRoot(int vector[],int size)
             printf(", ");
         }
     }
-    printf(" ]");
+    printf(" ]\n");
 }
 
 void dotProduct(int vector1[], int size1, int vector2[], int size2) {
@@ -67,7 +64,7 @@ void dotProduct(int vector1[], int size1, int vector2[], int size2) {
     for ( int i = 0; i < size1; i++ ) {
         result += (vector1[i] * vector2[i]);
     }
-    printf("Dot Product: %d", result);
+    printf("\nDot Product: %d\n", result);
 }
 
 void compositeNumbers(int vector[], int size) {    
@@ -78,7 +75,7 @@ void compositeNumbers(int vector[], int size) {
             if ( vector[i] % c == 0 ) {
                 if (isFirst) {
                     isFirst = 0;
-                    printf("[ ");
+                    printf("\n[ ");
                 }
                 else {
                     printf(", ");
@@ -90,11 +87,143 @@ void compositeNumbers(int vector[], int size) {
         }
     }
     if (!isFirst) {
-        printf(" ]");
+        printf(" ]\n");
     }
     else {
-        printf("None");
+        printf("\nNone\n");
     }
+}
+
+void calculateAverage(int vector[], int size)
+{
+    int sum = 0;
+    for (int i = 0; i < size; i++)
+    {
+        sum += vector[i];
+    }
+    double avg = (double)sum / size;
+    printf("\nAverage: %.2f\n", avg);
+}
+
+void divisibleByThree(int vector[], int size)
+{
+    int found = 0;
+    for (int i = 0; i < size; i++)
+    {
+        if (vector[i] % 3 == 0)
+        {
+            if (!found) 
+            {
+                printf("\n[ ");
+            }
+            else 
+            {
+                printf(", ");
+            }
+            printf("%d ", vector[i]);
+            found = 1;
+        }
+    }
+    if (!found)
+    {
+        printf("\nNone\n");
+    }
+    else 
+    {
+        printf(" ]\n");
+    }
+}
+
+int compareDesc(const void *a, const void *b)
+{
+    return (*(int *)b - *(int *)a);
+}
+
+void sortDescending(int vector[], int size)
+{
+    int copy[VECTOR_COUNT];
+    for (int i = 0; i < size; i++)
+    {
+        copy[i] = vector[i];
+    }
+    qsort(copy, size, sizeof(int), compareDesc);
+
+    printf("\nVector sorted in descending order:\n");
+    printf("[ ");
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d", copy[i]);
+        if ( i != size - 1 )
+        {
+            printf(", ");
+        }
+    }
+    printf(" ]\n");
+}
+
+void swap(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void shuffle(int array[], int size)
+{
+    for (int i = size - 1; i > 0; i--)
+    {
+        int j = rand() % (i + 1);
+        swap(&array[i], &array[j]);
+    }
+}
+
+void generateMatrixPermutations(int vector[], int size)
+{
+    srand(time(NULL));
+
+    int matrix[VECTOR_COUNT][VECTOR_COUNT];
+
+    for (int j = 0; j < size; j++)
+    {
+        matrix[0][j] = vector[j];
+    }
+
+    for (int i = 1; i < VECTOR_COUNT; i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
+            matrix[i][j] = vector[j];
+        }
+        shuffle(matrix[i], size);
+    }
+
+    printf("\n14x14 Matrix (original + permutations):\n");
+    for (int i = 0; i < VECTOR_COUNT; i++)
+    {
+        for (int j = 0; j < VECTOR_COUNT; j++)
+        {
+            printf("%2d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void closestTo25(int vector[], int size)
+{
+    int closest = vector[0];
+    int diff = abs(vector[0] - 25);
+
+    for (int i = 1; i < size; i++)
+    {
+        int d = abs(vector[i] - 25);
+        if (d < diff)
+        {
+            diff = d;
+            closest = vector[i];
+        }
+    }
+
+    printf("\nValue closest to 25: %d\n", closest);
 }
 
 void chooseOperation( int vector[], int size )
@@ -118,14 +247,19 @@ void chooseOperation( int vector[], int size )
                 calculateRoot(vector, size);
                 break;
             case 2:
+                calculateAverage(vector, size);
                 break;
             case 3:
+                divisibleByThree(vector, size);
                 break;
             case 4:
+                sortDescending(vector, size);
                 break;
             case 5:
+                generateMatrixPermutations(vector, size);
                 break;
             case 6:
+                closestTo25(vector, size);
                 break;
             case 7:
                 break;
