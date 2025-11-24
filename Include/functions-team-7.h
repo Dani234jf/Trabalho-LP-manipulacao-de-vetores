@@ -2,6 +2,22 @@
 #define FUNCTIONS_TEAM_7_H
 
 /**
+ * @brief The count of numbers to read and store in the array.
+ */
+#define VECTOR_COUNT 14
+
+/**
+ * @brief The number of all the options in the menu.
+ */
+#define OPERATIONS_NUMBER 11
+
+/**
+ * @brief Waits for the user to press `Enter`.
+ * @details Waits until the user presses the `Enter` key showing a message "continue...".
+ */
+void waitForUserEnter();
+
+/**
  * @brief Reads user-input values and stores them in the vector.
  *
  * @details This function asks the user to insert a set of integer values,
@@ -14,6 +30,14 @@
 void readNumbers(int vector[], int size);
 
 /**
+ * @brief Chooses function to execute based on the input.
+ * @details Executes the function linked to the option number that the user can choose.
+ * @param vector array of stored numbers
+ * @param size length of the array
+ */
+void chooseOperation( int vector[], int size);
+
+/**
  * @brief Calculates and displays the square root of each vector element.
  *
  * @details Uses the sqrt() function from math.h to compute the square root
@@ -23,7 +47,7 @@ void readNumbers(int vector[], int size);
  * @param vector Array of integer values.
  * @param size Number of elements in the vector.
  */
-void calculateSquareRoot(int vector[], int size);
+void calculateRoot(int vector[],int size);
 
 /**
  * @brief Calculates and displays the average of all values in the vector.
@@ -84,33 +108,27 @@ void generateMatrixPermutations(int vector[], int size);
 void closestTo25(int vector[], int size);
 
 /**
- * @brief The count of numbers to read and store in the array
- */
-#define VECTOR_COUNT 14
-
-/**
- * @brief The number of all the options in the menu
- */
-#define OPERATIONS_NUMBER 6
-
-/**
- * @brief Reads numbers and stores them in the `vector[int]`
- * @details Reads number from the user and stores them in the `vector[int]` array
- * @param vector array for storing the numbers
- * @param size length of the array (same as numbers count)
- */
-void readNumbers(int vector[], int size);
-
-/**
- * @brief Displays the menu
- * @details Displays the menu to the user, the menu contains all the options the user can make
+ * @brief Displays the menu.
+ * @details Displays the menu to the user, the menu contains all the options the user can make.
  */
 void showMenu();
 
 /**
- * @brief Chooses function to execute based on the input
- * @details Executes the function linked to the option number that the user can choose
+ * @brief Calculates the dot product of two vectors.
+ * @details Multiply the elements at matching indexes, and sum them all.
+ * @param vector1 array of stored numbers
+ * @param size1 length of the `vector1` array
+ * @param vector2 array of stored numbers
+ * @param size2 length of the `vector2` array
  */
-void chooseOperation(int vector[]);
+void dotProduct(int vector1[], int size1, int vector2[], int size2);
+
+/**
+ * @brief Outputs a new array with the composite numbers.
+ * @details Outputs a new array from the values of the `vector` that are composite numbers.
+ * @param vector array of stored numbers
+ * @param size length of the array
+ */
+void compositeNumbers(int vector[], int size);
 
 #endif
