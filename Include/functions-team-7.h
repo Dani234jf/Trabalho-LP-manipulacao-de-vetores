@@ -25,7 +25,7 @@ void waitForUserEnter();
  * All values are validated before being stored in the vector.
  *
  * @param vector Array where the values will be stored.
- * @param size Total number of values to read.
+ * @param size Total number of values to store.
  */
 void readNumbers(int vector[], int size);
 
@@ -44,8 +44,8 @@ void chooseOperation( int vector[], int size);
  * of each value in the vector. Results are displayed with two decimal places.
  * The original vector is not modified.
  *
- * @param vector Array of integer values.
- * @param size Number of elements in the vector.
+ * @param vector array of stored numbers
+ * @param size length of the array
  */
 void calculateRoot(int vector[],int size);
 
@@ -55,8 +55,8 @@ void calculateRoot(int vector[],int size);
  * @details Sums all vector elements and divides by the number of elements to obtain
  * the average. Displays the resulting value. Does not modify the vector.
  *
- * @param vector Input vector with numeric values.
- * @param size Total number of elements in the vector.
+ * @param vector array of stored numbers
+ * @param size length of the array
  */
 void calculateAverage(int vector[], int size);
 
@@ -66,8 +66,8 @@ void calculateAverage(int vector[], int size);
  * @details Iterates through the vector and identifies values whose remainder
  * when divided by 3 is zero. Only those values are printed.
  *
- * @param vector Vector provided by the user.
- * @param size Number of elements in the vector.
+ * @param vector array of stored numbers
+ * @param size length of the array
  */
 void divisibleByThree(int vector[], int size);
 
@@ -78,8 +78,8 @@ void divisibleByThree(int vector[], int size);
  * with a custom comparison function to sort the elements in descending order.
  * The original vector remains unchanged.
  *
- * @param vector Original vector containing numeric values.
- * @param size Number of elements in the vector.
+ * @param vector array of stored numbers
+ * @param size length of the array
  */
 void sortDescending(int vector[], int size);
 
@@ -90,8 +90,8 @@ void sortDescending(int vector[], int size);
  * from the provided vector. Each permutation is generated using a shuffle
  * algorithm based on rand() and srand().
  *
- * @param vector Vector containing the values to be permuted.
- * @param size Number of available elements in the vector.
+ * @param vector array of stored numbers
+ * @param size length of the array
  */
 void generateMatrixPermutations(int vector[], int size);
 
@@ -102,14 +102,14 @@ void generateMatrixPermutations(int vector[], int size);
  * based on absolute difference. If two values are equally close, the first
  * encountered is chosen. The result is displayed.
  *
- * @param vector Vector containing the values to analyze.
- * @param size Number of elements in the vector.
+ * @param vector array of stored numbers
+ * @param size length of the array
  */
 void closestTo25(int vector[], int size);
 
 /**
- * @brief Displays the menu.
- * @details Displays the menu to the user, the menu contains all the options the user can make.
+ * @brief Displays the menu with all the options the user can select.
+ * @details Displays the menu to the user, the menu contains all the options the user can select.
  */
 void showMenu();
 

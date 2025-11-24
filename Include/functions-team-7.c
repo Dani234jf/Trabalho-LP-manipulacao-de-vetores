@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h> // qsort, rand, srand, malloc, free
-#include <math.h>   // sqrt
-#include <time.h>   // time
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
 #include "functions-team-7.h"
 
 void waitForUserEnter() {
@@ -56,7 +56,7 @@ void calculateRoot(int vector[],int size)
             printf(", ");
         }
     }
-    printf(" ]");
+    printf(" ]\n");
 }
 
 void dotProduct(int vector1[], int size1, int vector2[], int size2) {
@@ -64,7 +64,7 @@ void dotProduct(int vector1[], int size1, int vector2[], int size2) {
     for ( int i = 0; i < size1; i++ ) {
         result += (vector1[i] * vector2[i]);
     }
-    printf("Dot Product: %d", result);
+    printf("\nDot Product: %d\n", result);
 }
 
 void compositeNumbers(int vector[], int size) {    
@@ -75,7 +75,7 @@ void compositeNumbers(int vector[], int size) {
             if ( vector[i] % c == 0 ) {
                 if (isFirst) {
                     isFirst = 0;
-                    printf("[ ");
+                    printf("\n[ ");
                 }
                 else {
                     printf(", ");
@@ -87,10 +87,10 @@ void compositeNumbers(int vector[], int size) {
         }
     }
     if (!isFirst) {
-        printf(" ]");
+        printf(" ]\n");
     }
     else {
-        printf("None");
+        printf("\nNone\n");
     }
 }
 
@@ -107,21 +107,31 @@ void calculateAverage(int vector[], int size)
 
 void divisibleByThree(int vector[], int size)
 {
-    printf("\nValues divisible by 3:\n");
     int found = 0;
     for (int i = 0; i < size; i++)
     {
         if (vector[i] % 3 == 0)
         {
+            if (!found) 
+            {
+                printf("\n[ ");
+            }
+            else 
+            {
+                printf(", ");
+            }
             printf("%d ", vector[i]);
             found = 1;
         }
     }
     if (!found)
     {
-        printf("None");
+        printf("\nNone\n");
     }
-    printf("\n");
+    else 
+    {
+        printf(" ]\n");
+    }
 }
 
 int compareDesc(const void *a, const void *b)
@@ -139,11 +149,16 @@ void sortDescending(int vector[], int size)
     qsort(copy, size, sizeof(int), compareDesc);
 
     printf("\nVector sorted in descending order:\n");
+    printf("[ ");
     for (int i = 0; i < size; i++)
     {
-        printf("%d ", copy[i]);
+        printf("%d", copy[i]);
+        if ( i != size - 1 )
+        {
+            printf(", ");
+        }
     }
-    printf("\n");
+    printf(" ]\n");
 }
 
 void swap(int *a, int *b)
@@ -232,14 +247,19 @@ void chooseOperation( int vector[], int size )
                 calculateRoot(vector, size);
                 break;
             case 2:
+                calculateAverage(vector, size);
                 break;
             case 3:
+                divisibleByThree(vector, size);
                 break;
             case 4:
+                sortDescending(vector, size);
                 break;
             case 5:
+                generateMatrixPermutations(vector, size);
                 break;
             case 6:
+                closestTo25(vector, size);
                 break;
             case 7:
                 break;
