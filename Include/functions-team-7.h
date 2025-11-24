@@ -1,20 +1,86 @@
 #ifndef FUNCTIONS_TEAM_7_H
 #define FUNCTIONS_TEAM_7_H
 
-#define VECTOR_COUNT 14
-#define OPERATIONS_NUMBER 6
-
-/* Protótipos das funções */
+/**
+ * @brief Reads user-input values and stores them in the vector.
+ *
+ * @details This function asks the user to insert a set of integer values,
+ * ensuring they fall within the allowed range (between 3 and 31).
+ * All values are validated before being stored in the vector.
+ *
+ * @param vector Array where the values will be stored.
+ * @param size Total number of values to read.
+ */
 void readNumbers(int vector[], int size);
-void showMenu();
-void chooseOperation(int vector[]);
 
-/* Funções do menu */
+/**
+ * @brief Calculates and displays the square root of each vector element.
+ *
+ * @details Uses the sqrt() function from math.h to compute the square root
+ * of each value in the vector. Results are displayed with two decimal places.
+ * The original vector is not modified.
+ *
+ * @param vector Array of integer values.
+ * @param size Number of elements in the vector.
+ */
 void calculateSquareRoot(int vector[], int size);
+
+/**
+ * @brief Calculates and displays the average of all values in the vector.
+ *
+ * @details Sums all vector elements and divides by the number of elements to obtain
+ * the average. Displays the resulting value. Does not modify the vector.
+ *
+ * @param vector Input vector with numeric values.
+ * @param size Total number of elements in the vector.
+ */
 void calculateAverage(int vector[], int size);
+
+/**
+ * @brief Displays all elements of the vector that are divisible by three.
+ *
+ * @details Iterates through the vector and identifies values whose remainder
+ * when divided by 3 is zero. Only those values are printed.
+ *
+ * @param vector Vector provided by the user.
+ * @param size Number of elements in the vector.
+ */
 void divisibleByThree(int vector[], int size);
+
+/**
+ * @brief Sorts the vector in descending order and displays the result.
+ *
+ * @details This function creates a copy of the original vector and uses qsort()
+ * with a custom comparison function to sort the elements in descending order.
+ * The original vector remains unchanged.
+ *
+ * @param vector Original vector containing numeric values.
+ * @param size Number of elements in the vector.
+ */
 void sortDescending(int vector[], int size);
+
+/**
+ * @brief Generates and displays 14x14 matrix permutations based on the vector.
+ *
+ * @details The function creates random permutations of 14x14 matrices using values
+ * from the provided vector. Each permutation is generated using a shuffle
+ * algorithm based on rand() and srand().
+ *
+ * @param vector Vector containing the values to be permuted.
+ * @param size Number of available elements in the vector.
+ */
 void generateMatrixPermutations(int vector[], int size);
+
+/**
+ * @brief Finds and displays the vector value closest to 25.
+ *
+ * @details Scans all values in the vector and determines which one is closest to 25,
+ * based on absolute difference. If two values are equally close, the first
+ * encountered is chosen. The result is displayed.
+ *
+ * @param vector Vector containing the values to analyze.
+ * @param size Number of elements in the vector.
+ */
 void closestTo25(int vector[], int size);
 
 /**
