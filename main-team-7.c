@@ -13,7 +13,7 @@ int main()
     while (1)
     {
         showMenu();
-        chooseOperation(storedNumbers);
+        chooseOperation(storedNumbers, VECTOR_COUNT);
     }
 
     return 0;
