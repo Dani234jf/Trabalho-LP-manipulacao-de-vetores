@@ -10,8 +10,14 @@
 /**
  * @brief The number of all the options in the menu
  */
-#define OPERATIONS_NUMBER 6
+#define OPERATIONS_NUMBER 11
 
+
+/**
+ * @brief Waits for the user to press `enter`  
+ * @details Waits until the user presses the `enter` key showing a message "continue..."
+ */
+void waitForUserEnter();
 
 /**
  * @brief Reads numbers and stores them in the `vector[int]`
@@ -26,6 +32,16 @@ void readNumbers(int vector[], int size);
  * @details Displays the menu to the user, the menu contains all the options the user can make
  */
 void showMenu();
+
+/**
+ * @brief Calculates the dot product of two vectors
+ * @details Multiply the elements at matching indexes, and sum them all
+ * @param vector1 array of stored numbers
+ * @param size1 length of the `vector1` array
+ * @param vector2 array of the new vector
+ * @param size2 length of the `vector2` array
+ */
+void dotProduct(int vector1[], int size1, int vector2[], int size2);
 
 /**
  * @brief Chooses function to execute based on the input

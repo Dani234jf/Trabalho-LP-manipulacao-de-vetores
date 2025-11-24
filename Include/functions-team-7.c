@@ -2,6 +2,13 @@
 #include <math.h>
 #include "functions-team-7.h"
 
+void waitForUserEnter() {
+    char temp;
+    printf("\n\ncontinue...");
+    scanf("%c",&temp);
+    while(getchar() != '\n');    
+}
+
 void readNumbers(int vector[], int count)
 {
     int i;
@@ -31,11 +38,13 @@ void readNumbers(int vector[], int count)
 
 void showMenu()
 {
-    printf("\n\n\nStatistics Calculation Menu\n");
+    printf("\n\n\nStatistics Calculation Menu:");
     printf("\n_______________________________\n");
     printf("                                |\n");
     printf("1. Calculate the square root    |\n2. Calculate the average        |\n3. Values divisible by 3        |\n");
     printf("4. Sort in descending order     |\n5. Vector permutations          |\n6. Value closest to 25          |\n");
+    printf("7. Help                         |\n8. Calculate the Dot product    |\n9. Composite numbers            |\n10. Product of two vectors      |\n");
+    printf("11. Calculate the determinant   |\n");
     printf("_______________________________ |\n");
 }
 
@@ -51,6 +60,14 @@ void calculateRoot(int vector[],int size)
         }
     }
     printf(" ]");
+}
+
+void dotProduct(int vector1[], int size1, int vector2[], int size2) {
+    int result = 1;
+    for ( int i = 0; i < size1; i++ ) {
+        result += (vector1[i] * vector2[i]);
+    }
+    printf("Dot Product: %d", result);
 }
 
 void chooseOperation( int vector[], int size )
@@ -83,10 +100,21 @@ void chooseOperation( int vector[], int size )
                 break;
             case 6:
                 break;
+            case 7:
+                break;
+            case 8:
+                int numbers[VECTOR_COUNT];
+                readNumbers(numbers, VECTOR_COUNT);
+                dotProduct(vector, size, numbers, VECTOR_COUNT);
+                break;
+            case 9:
+                break;
+            case 10:
+                break;
             default:
                 printf("ERROR: Invalid number!");
-                break;
+                continue;
         }
-
+        waitForUserEnter();
     } while (n == 0);
 }
