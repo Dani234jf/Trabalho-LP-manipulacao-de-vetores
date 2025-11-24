@@ -70,6 +70,33 @@ void dotProduct(int vector1[], int size1, int vector2[], int size2) {
     printf("Dot Product: %d", result);
 }
 
+void compositeNumbers(int vector[], int size) {    
+    int isFirst = 1;
+
+    for ( int i = 0; i < size; i++ ) {
+        for ( int c = 2; c < vector[i]; c++ ) {
+            if ( vector[i] % c == 0 ) {
+                if (isFirst) {
+                    isFirst = 0;
+                    printf("[ ");
+                }
+                else {
+                    printf(", ");
+                }
+
+                printf("%d", vector[i]);
+                break;
+            }
+        }
+    }
+    if (!isFirst) {
+        printf(" ]");
+    }
+    else {
+        printf("None");
+    }
+}
+
 void chooseOperation( int vector[], int size )
 {
     int n = 0;
@@ -108,8 +135,11 @@ void chooseOperation( int vector[], int size )
                 dotProduct(vector, size, numbers, VECTOR_COUNT);
                 break;
             case 9:
+                compositeNumbers(vector,size);
                 break;
             case 10:
+                break;
+            case 11:
                 break;
             default:
                 printf("ERROR: Invalid number!");
