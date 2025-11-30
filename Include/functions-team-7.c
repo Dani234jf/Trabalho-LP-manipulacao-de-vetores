@@ -60,7 +60,7 @@ void calculateRoot(int vector[],int size)
 }
 
 void dotProduct(int vector1[], int size1, int vector2[], int size2) {
-    int result = 1;
+    int result = 0;
     for ( int i = 0; i < size1; i++ ) {
         result += (vector1[i] * vector2[i]);
     }
@@ -226,7 +226,87 @@ void closestTo25(int vector[], int size)
     printf("\nValue closest to 25: %d\n", closest);
 }
 
-void chooseOperation( int vector[], int size )
+void showIntMatrix(int matrix[][VECTOR_COUNT]) {
+    printf("\n");
+    for ( int i = 0; i < VECTOR_COUNT; i++ ) {
+        for ( int j = 0; j < VECTOR_COUNT; j++ ) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
+void matrixProduct(int vector1[], int size1, int vector2[], int size2, int matrix[][VECTOR_COUNT]) {
+    for ( int i = 0; i < VECTOR_COUNT; i++ ) {
+        for ( int j = 0; j < VECTOR_COUNT; j++ ) {
+            matrix[i][j] = vector1[i] * vector2[j];
+        }
+    }
+}
+
+void swapMatrixLines(float matrix[][VECTOR_COUNT], int row1, int row2) {
+    float tempRow1[VECTOR_COUNT];
+    for ( int j = 0; j < VECTOR_COUNT; j++ ) {
+        tempRow1[j] = matrix[row1][j];
+        matrix[row1][j] = matrix[row2][j];
+    }
+    for ( int j = 0; j < VECTOR_COUNT; j++ ) {
+        matrix[row2][j] = tempRow1[j];
+    }
+}
+
+void convertMatrixToFloat(int matrixInt[][VECTOR_COUNT], float matrixFloat[][VECTOR_COUNT]) {
+    for (int i = 0; i < VECTOR_COUNT; i++) {
+        for ( int j = 0; j < VECTOR_COUNT; j++ ) {
+            matrixFloat[i][j] = (float)matrixInt[i][j];
+        }
+    }
+}
+
+double determinantMatrix14(float matrix[VECTOR_COUNT][VECTOR_COUNT], int row, int column) {
+    float newMatrix[VECTOR_COUNT][VECTOR_COUNT];
+    for ( int i = 0; i < VECTOR_COUNT; i++ ) {
+        for ( int j = 0; j < VECTOR_COUNT; j++ ) {
+            newMatrix[i][j] = (float)matrix[i][j];
+        }
+    }
+
+    if ( VECTOR_COUNT - row == 1 && VECTOR_COUNT - column == 1 ) {
+        return matrix[row][column];
+    }
+
+    // Find the first row starting from 'row' that has a non-zero element in the current column
+    int bestRow = -1;
+    for ( int i = row; i < VECTOR_COUNT; i++ ) {
+        if ( matrix[i][column] != 0 ) {
+            bestRow = i;
+            break;
+        }
+    }
+    if (bestRow == -1) { return 0.0f; }
+    
+    // Swap the current row with the row that has a non-zero pivot, if needed
+    int swapLines = 0;
+    if ( bestRow != row ) {
+        swapMatrixLines(newMatrix, row, bestRow);
+        swapLines = 1;
+    }
+
+    // Eliminate all elements below the pivot
+    for ( int i = row; i < VECTOR_COUNT; i++ ) {
+        if ( i == row ) {
+            continue;
+        }
+        float factor = (float)newMatrix[i][column] / newMatrix[row][column];
+        for ( int j = column; j < VECTOR_COUNT; j++ ) {
+            newMatrix[i][j] = newMatrix[i][j] - newMatrix[row][j] * factor;
+        }
+    }
+    return determinantMatrix14(newMatrix,row+1,column+1) * (double)newMatrix[row][column] * (swapLines ? -1 : 1);
+}
+
+void chooseOperation( int vector[], int size, int matrix[][VECTOR_COUNT], int *matrixInitialized )
 {
     int n = 0;
     do {
@@ -272,8 +352,19 @@ void chooseOperation( int vector[], int size )
                 compositeNumbers(vector,size);
                 break;
             case 10:
+                readNumbers(numbers, VECTOR_COUNT);
+                matrixProduct(vector,size, numbers, VECTOR_COUNT, matrix);
+                *matrixInitialized = 1;
+                showIntMatrix(matrix);
                 break;
             case 11:
+                if (!(*matrixInitialized)) {
+                    printf("The matrix is not initialized, choose the option 10 to initialize it");
+                    break;
+                }
+                float matrixFloat[VECTOR_COUNT][VECTOR_COUNT];
+                convertMatrixToFloat(matrix, matrixFloat);
+                printf("Determinant: %.1lf",determinantMatrix14(matrixFloat, 0,0));
                 break;
             default:
                 printf("ERROR: Invalid number!");

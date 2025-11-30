@@ -6,6 +6,8 @@
 int main()
 {
     int storedNumbers[VECTOR_COUNT];
+    int calculatedMatrix[VECTOR_COUNT][VECTOR_COUNT];
+    int calculatedMatrixInitialized = 0;
 
     printf("Vector manipulation program.\n");
     readNumbers(storedNumbers, VECTOR_COUNT);
@@ -13,7 +15,7 @@ int main()
     while (1)
     {
         showMenu();
-        chooseOperation(storedNumbers, VECTOR_COUNT);
+        chooseOperation(storedNumbers, VECTOR_COUNT, calculatedMatrix, &calculatedMatrixInitialized);
     }
 
     return 0;

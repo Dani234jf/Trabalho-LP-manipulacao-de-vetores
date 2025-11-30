@@ -34,8 +34,10 @@ void readNumbers(int vector[], int size);
  * @details Executes the function linked to the option number that the user can choose.
  * @param vector array of stored numbers
  * @param size length of the array
+ * @param calculatedMatrix array to store the matrix
+ * @param calculatedMatrixInitialized 1 if is initialized or 0 if not
  */
-void chooseOperation( int vector[], int size);
+void chooseOperation( int vector[], int size, int calculatedMatrix[][VECTOR_COUNT], int *calculatedMatrixInitialized);
 
 /**
  * @brief Calculates and displays the square root of each vector element.
@@ -118,7 +120,7 @@ void showMenu();
  * @details Multiply the elements at matching indexes, and sum them all.
  * @param vector1 array of stored numbers
  * @param size1 length of the `vector1` array
- * @param vector2 array of stored numbers
+ * @param vector2 array of new stored numbers
  * @param size2 length of the `vector2` array
  */
 void dotProduct(int vector1[], int size1, int vector2[], int size2);
@@ -130,5 +132,50 @@ void dotProduct(int vector1[], int size1, int vector2[], int size2);
  * @param size length of the array
  */
 void compositeNumbers(int vector[], int size);
+
+/**
+ * @brief Outputs the `matrix` to the screen
+ * @details Outputs the `matrix` in the terminal, line by line
+ * @param matrix `(14x14)`
+ */
+void showIntMatrix(int matrix[][VECTOR_COUNT]);
+
+/**
+ * @brief Calculates the matrix product between `vector1` (14x1) and `vector2`(1x14)
+ * @details Multiply the `vector1` (14x1) and `vector2` (1x14) and outputs a new (14x14) matrix
+ * @param vector1 array of stored numbers
+ * @param size1 length of the `vector1` array
+ * @param vector2 array of new stored numbers
+ * @param size2 length of the `vector2` array
+ * @param matrix matrix to store the result
+ */
+void matrixProduct(int vector1[], int size1, int vector2[], int size2, int matrix[][VECTOR_COUNT]);
+
+/**
+ * @brief Swaps two rows of the matrix
+ * @details Swaps two rows of the matrix, the `row1` with the `row2`
+ * @param matrix `(14x14)`
+ * @param row1 index of the first row to swap
+ * @param row2 index of the second row to swap
+ */
+void swapMatrixLines(float matrix[][VECTOR_COUNT], int row1, int row2);
+
+/**
+ * @brief Converts the `matrix` of integers to floats
+ * @details Converts each element of the `matrix` to the `matrixFloat`
+ * @param matrix `(14x14)`
+ * @param matrixFloat `(14x14)`
+ */
+void convertMatrixToFloat(int matrixInt[][VECTOR_COUNT], float matrixFloat[][VECTOR_COUNT]);
+
+/**
+ * @brief Calculates the determinant of the `matrix` recursively.
+ * @details Calculates the determinant of the `matrix` using recursive elimination, finds pivots to create zero's
+ * @param matrix `(14x14)`
+ * @param row first row of the `matrix`, `0`
+ * @param column first column of the `matrix`, `0`
+ * @return Determinant of the `matrix`
+ */
+double determinantMatrix14(float matrix[VECTOR_COUNT][VECTOR_COUNT], int row, int column);
 
 #endif
