@@ -11,7 +11,7 @@ run: $(TARGET)
 	./$<
 
 $(TARGET): $(O_FILES)
-	cc $^ -o $@
+	cc $^ -o $@ -lm
 
 $(O_FILES): %.o: %.c
 	cc -c $< -o $@
