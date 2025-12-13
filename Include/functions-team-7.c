@@ -226,6 +226,22 @@ void closestTo25(int vector[], int size)
     printf("\nValue closest to 25: %d\n", closest);
 }
 
+void showHelpMenu() {
+    printf("\nHelp Menu:\n");
+    printf("1. Calculate the square root - Shows the square root of each element\n");
+    printf("2. Calculate the average - Shows the average of all elements\n");
+    printf("3. Values divisible by 3 - Lists elements divisible by 3\n");
+    printf("4. Sort in descending order - Displays the vector sorted desc\n");
+    printf("5. Vector permutations - Shows original and shuffled permutations\n");
+    printf("6. Value closest to 25 - Shows which value is closest to 25\n");
+    printf("7. Help - Opens this help menu\n");
+    printf("8. Calculate the Dot product - Multiply two vectors' corresponding elements\n");
+    printf("9. Composite numbers - Lists composite numbers in the vector\n");
+    printf("10. Product of two vectors - Generates a 14x14 product matrix\n");
+    printf("11. Calculate the determinant - Calculates determinant of initialized matrix\n");
+    waitForUserEnter();
+}
+
 void showIntMatrix(int matrix[][VECTOR_COUNT]) {
     printf("\n");
     for ( int i = 0; i < VECTOR_COUNT; i++ ) {
@@ -310,7 +326,7 @@ void chooseOperation( int vector[], int size, int matrix[][VECTOR_COUNT], int *m
 {
     int n = 0;
     do {
-        printf("\nEnter the option number (e.g: 2): ");
+        printf("\nEnter the option number (1 to 11): ");
         int valid = scanf("%d",&n);
 
         if(!valid || n < 1 || n > OPERATIONS_NUMBER)
@@ -342,6 +358,7 @@ void chooseOperation( int vector[], int size, int matrix[][VECTOR_COUNT], int *m
                 closestTo25(vector, size);
                 break;
             case 7:
+                showHelpMenu();
                 break;
             case 8:
                 int numbers[VECTOR_COUNT];
@@ -370,6 +387,8 @@ void chooseOperation( int vector[], int size, int matrix[][VECTOR_COUNT], int *m
                 printf("ERROR: Invalid number!");
                 continue;
         }
-        waitForUserEnter();
+        if (n != 7) {
+            waitForUserEnter();
+        }
     } while (n == 0);
 }

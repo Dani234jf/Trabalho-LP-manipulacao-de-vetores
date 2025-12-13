@@ -110,6 +110,13 @@ void generateMatrixPermutations(int vector[], int size);
 void closestTo25(int vector[], int size);
 
 /**
+ * @brief Shows a help menu with descriptions for each option.
+ * @details The help menu provides brief descriptions for all operations
+ * and allows the user to press `0` to exit back to the main menu.
+ */
+void showHelpMenu();
+
+/**
  * @brief Displays the menu with all the options the user can select.
  * @details Displays the menu to the user, the menu contains all the options the user can select.
  */
