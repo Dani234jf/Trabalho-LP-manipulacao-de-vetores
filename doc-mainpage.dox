@@ -1,70 +1,45 @@
 /**
  * @mainpage Trabalho de Grupo - Manipulação de Vetores
  * 
- * @section intro_sec Introdução
+ * @section Introdução
  * 
- * Este projeto consiste no desenvolvimento de um programa que permite fazer 
- * cálculos e operações sobre um conjunto de números inteiros armazenados num vetor.
+ * Este projeto é desenvolvido no âmbito da unidade curricular de Laboratórios de Programação (LP)
+ * e consiste na implementação de um programa em linguagem C que permite realizar
+ * cálculos e operações estatísticas sobre um vetor de 14 números inteiros.
+ *
+ * O objetivo é solicitar ao utilizador 14 números inteiros, garantindo que estão
+ * no intervalo [3, 31] através da validação de entrada. Após a leitura, o programa
+ * apresenta um menu interativo que permite aceder a diversas funcionalidades.
  * 
- * O programa solicita ao utilizador 14 números inteiros (entre 3 e 31) e oferece
- * um menu interativo com diversas funcionalidades estatísticas e operações matemáticas.
+ * @section Funcionalidades Mínimas
+ *
+ * As funcionalidades básicas implementadas incluem:
+ * - Cálculo da raiz quadrada de todos os elementos.
+ * - Cálculo da média de todos os elementos.
+ * - Devolução dos valores do vetor divisíveis por três.
+ * - Devolução do vetor ordenado por ordem decrescente.
+ * - Construção de uma matriz 14x14 baseada no vetor lido e nas permutações.
+ * - Identificação do valor mais próximo de 25.
+ *
+ * @section Funcionalidades Adicionais
+ *
+ * A versão mais elaborada do projeto inclui adicionalmente:
+ * - Leitura de um novo vetor e cálculo do produto interno.
+ * - Identificação de todos os números compostos (não primos) no vetor inicial.
+ * - Leitura de um novo vetor e cálculo da matriz resultante do produto do vetor inicial.
+ * - Cálculo do determinante da matriz resultante do produto (se aplicável).
+ * - Adição de uma página de ajuda no menu.
+ * - Ajuda na linha de comandos com a flag --help.
  * 
- * @section features_sec Funcionalidades Principais
- * 
- * O programa implementa as seguintes funcionalidades:
- * 
- * 1. Cálculo da raíz quadrada de todos os elementos no vetor
- * 2. Cálculo da média de todos os elementos no vetor
- * 3. Devolução dos valores do vetor que são divisíveis por três
- * 4. Devolução do vetor ordenado por ordem decrescente
- * 5. Construção de uma matriz 14x14 com permutações do vetor
- * 6. Identificação do valor mais próximo de 25
- * 
- * @subsection advanced_features Funcionalidades Avançadas
- * 
- * - Leitura de novo vetor e cálculo do produto interno
- * - Identificação de números compostos (não primos)
- * - Cálculo de matriz 14x14 resultante do produto de vetores
- * - Cálculo do determinante da matriz
- * - Página de ajuda interativa
- * - Suporte para flag --help na linha de comandos
- * 
- * @section structure_sec Estrutura do Projeto
+ * @section Estrutura do Projeto
  * 
  * O projeto está organizado nos seguintes ficheiros:
  * 
- * - @c main-team-7.c - Ficheiro principal com a função main()
+ * - @c main-team-7.c - Ficheiro principal com a função main
  * - @c functions-team-7.c - Implementação das funções
- * - @c functions-team-7.h - Protótipos e declarações
+ * - @c functions-team-7.h - Documentação das funções
  * 
- * @section compile_sec Compilação e Execução
- * 
- * Para compilar o projeto, utilize o Makefile fornecido:
- * @code
- * make
- * @endcode
- * 
- * Para executar o programa:
- * @code
- * ./main-team-7
- * @endcode
- * 
- * Para obter ajuda:
- * @code
- * ./main-team-7 --help
- * @endcode
- * 
- * @section authors_sec Autores
- * 
- * Team 7 - Laboratórios de Programação
+ * Grupo 7 - Laboratórios de Programação
  * 
  * Universidade da Beira Interior
- * 
- * @section license_sec Licença
- * 
- * Este projeto foi desenvolvido no âmbito da unidade curricular de 
- * Laboratórios de Programação da UBI.
- * 
- * @note Todos os valores de entrada devem estar compreendidos entre 3 e 31.
- *       O programa inclui validação de entrada.
  */
