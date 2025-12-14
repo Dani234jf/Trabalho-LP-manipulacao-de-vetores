@@ -1,8 +1,8 @@
 /**
  * @mainpage Trabalho de Grupo - Manipulação de Vetores
- * 
- * @section Introdução
- * 
+ *
+ * @section introducao Introdução
+ *
  * Este projeto é desenvolvido no âmbito da unidade curricular de Laboratórios de Programação (LP)
  * e consiste na implementação de um programa em linguagem C que permite realizar
  * cálculos e operações estatísticas sobre um vetor de 14 números inteiros.
@@ -10,8 +10,8 @@
  * O objetivo é solicitar ao utilizador 14 números inteiros, garantindo que estão
  * no intervalo [3, 31] através da validação de entrada. Após a leitura, o programa
  * apresenta um menu interativo que permite aceder a diversas funcionalidades.
- * 
- * @section Funcionalidades Mínimas
+ *
+ * @section funcionalidades_min Funcionalidades Mínimas
  *
  * As funcionalidades básicas implementadas incluem:
  * - Cálculo da raiz quadrada de todos os elementos.
@@ -21,7 +21,7 @@
  * - Construção de uma matriz 14x14 baseada no vetor lido e nas permutações.
  * - Identificação do valor mais próximo de 25.
  *
- * @section Funcionalidades Adicionais
+ * @section funcionalidades_add Funcionalidades Adicionais
  *
  * A versão mais elaborada do projeto inclui adicionalmente:
  * - Leitura de um novo vetor e cálculo do produto interno.
@@ -30,16 +30,17 @@
  * - Cálculo do determinante da matriz resultante do produto (se aplicável).
  * - Adição de uma página de ajuda no menu.
  * - Ajuda na linha de comandos com a flag --help.
- * 
- * @section Estrutura do Projeto
- * 
+ *
+ * @section estrutura Estrutura do Projeto
+ *
  * O projeto está organizado nos seguintes ficheiros:
- * 
- * - @c main-team-7.c - Ficheiro principal com a função main
- * - @c functions-team-7.c - Implementação das funções
- * - @c functions-team-7.h - Documentação das funções
- * 
- * Grupo 7 - Laboratórios de Programação
- * 
+ *
+ * - @c main-team-7.c — Ficheiro principal com a função main
+ * - @c functions-team-7.c — Implementação das funções
+ * - @c functions-team-7.h — Documentação das funções
+ *
+ * Grupo 7 — Laboratórios de Programação
+ *
  * Universidade da Beira Interior
  */
+ 
