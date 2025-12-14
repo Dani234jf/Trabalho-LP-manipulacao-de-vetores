@@ -228,6 +228,9 @@ void closestTo25(int vector[], int size)
 
 void showHelpMenu() {
     printf("\nHelp Menu:\n");
+    printf("This application provides a menu-driven interface allowing the user to select various operations\n");
+    printf("to be performed on the list of numbers provided by the user.\n");
+    printf("\nHere are all the available options that the program can execute:\n\n");
     printf("1. Calculate the square root - Shows the square root of each element\n");
     printf("2. Calculate the average - Shows the average of all elements\n");
     printf("3. Values divisible by 3 - Lists elements divisible by 3\n");
