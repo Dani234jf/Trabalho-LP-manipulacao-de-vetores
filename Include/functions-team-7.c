@@ -239,7 +239,6 @@ void showHelpMenu() {
     printf("9. Composite numbers - Lists composite numbers in the vector\n");
     printf("10. Product of two vectors - Generates a 14x14 product matrix\n");
     printf("11. Calculate the determinant - Calculates determinant of initialized matrix\n");
-    waitForUserEnter();
 }
 
 void showIntMatrix(int matrix[][VECTOR_COUNT]) {
@@ -387,8 +386,6 @@ void chooseOperation( int vector[], int size, int matrix[][VECTOR_COUNT], int *m
                 printf("ERROR: Invalid number!");
                 continue;
         }
-        if (n != 7) {
-            waitForUserEnter();
-        }
+        waitForUserEnter();
     } while (n == 0);
 }
